@@ -1,3 +1,7 @@
+"First Dowload 'plug.vim' and put in the 'autoload' directory
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"Then open '.vimrc' and run ':PlugInstall'.
 set nocompatible
 filetype plugin indent on
 
