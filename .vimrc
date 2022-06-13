@@ -1,7 +1,9 @@
-"First Dowload 'plug.vim' and put in the 'autoload' directory
+"First Download 'plug.vim' and put in the 'autoload' directory
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "Then open '.vimrc' and run ':PlugInstall'.
+
+
 set nocompatible
 filetype plugin indent on
 
@@ -45,6 +47,7 @@ set expandtab				  " tabs will be always spaces
 set tabstop=4                 " change tab size to 4 spaces
 set shiftwidth=4              " change indentation to 4 spaces
 set synmaxcol=500             " Syntax limit
+set clipboard=unnamedplus     " use system clipboard
 
 
 " Only spell check on *_APUNTE.txt files
