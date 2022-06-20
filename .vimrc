@@ -34,6 +34,7 @@ noremap <C-F> :Tsautof<CR>
 "imap <C-l> <Plug>(coc-snippets-expand)
 inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+"-------------------------------------------------------------
 
 " VIM CONFIG
 set number                    " show number of each line
@@ -47,8 +48,6 @@ set expandtab				  " tabs will be always spaces
 set tabstop=4                 " change tab size to 4 spaces
 set shiftwidth=4              " change indentation to 4 spaces
 set synmaxcol=500             " Syntax limit
-set clipboard=unnamedplus     " use system clipboard
-
 
 " Only spell check on *_APUNTE.txt files
 autocmd BufRead,BufNewFile *_APUNTE.txt 
@@ -74,20 +73,29 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
+"-------------------------------------------------------------
+
+" PLUGINS
 call plug#begin()
 " The default plugin directory will be
 " '~/vimfiles/plugged'
 
-" STYLE 
+" Style 
 Plug 'itchyny/lightline.vim'          " Light-line, Status bar
-" Plug 'vim-airline/vim-airline'
-Plug 'ajmwagar/vim-deus'              " Theme
-Plug 'mhinz/vim-startify'             " fancy start screen
-Plug 'yggdroot/indentline'            " display indentation level
+Plug 'ajmwagar/vim-deus'              " Theme deus
+Plug 'mhinz/vim-startify'             " Start screen
+Plug 'yggdroot/indentline'            " Display indentation level
 
 " COMPLETION
 Plug 'alvan/vim-closetag'             " HTML auto close tag
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Some language servers
+    " :CocInstall coc-snippets          Snippets
+    " :CocInstall coc-pyright           Python
+    " :CocInstall coc-html              HTML
+    " :CocInstall coc-css               CSS
+    " :CocInstall coc-tsserver          Javascript & Typescript
+    " :CocInstall coc-json              Json
 Plug 'honza/vim-snippets'
 
 " UTILS 
@@ -106,6 +114,7 @@ call plug#end()
 color deus
 syntax on
 
+" Lightline config with CoC
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
