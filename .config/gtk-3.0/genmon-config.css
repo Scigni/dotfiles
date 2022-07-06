@@ -1,0 +1,53 @@
+/* Genmon Battery widget */
+#genmon-1 box {
+    background-color: green; /* TEMPORAL COLOR */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*---------------------------------------------*/
+
+/* Genmon DateTime widget */
+#genmon-4 box {
+    background-color: #5E8EDA;
+    /* Make a triangle pointing to left*/
+    border-top: 5px solid #5E8EDA;
+    border-bottom: 5px solid #5E8EDA;
+    border-right: 5px solid green;
+}
+
+#genmon-4 label {
+    margin-top: -11px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*---------------------------------------------*/
+
+/* Genmon Memory widget */
+#genmon-2 box {
+    background-color: #7F8487;
+    border-top: 5px solid #7F8487;
+    border-bottom: 5px solid #7F8487;
+    border-right: 5px solid #5E8EDA;
+}
+
+#genmon-2 label {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*---------------------------------------------*/
+
+/* Genmon Media Player widget */
+#genmon-5 box {
+    background-color: #B25068;
+    border-top: 5px solid #B25068;
+    border-bottom: 5px solid #B25068;
+    border-right: 5px solid #7F8487;
+}
+
+#genmon-5 label {
+    font-style: italic;
+    margin-top: -11px;
+    padding-left: 5px;
+    padding-right: 5px;	
+}
+/*---------------------------------------------*/
