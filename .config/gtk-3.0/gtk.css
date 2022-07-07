@@ -1,6 +1,6 @@
  @import "genmon-config.css";
 
- /* PANEL */
+ /* PANEL 43a047*/
 .xfce4-panel {
     padding: 0;
     margin: 0;
@@ -9,7 +9,7 @@
 
 /* Wifi/Connection widget */
 #indicator-button {
-    background-color: #1B2430;
+    background-color: #4CAF50;
 }
 
 #indicator-button image {
@@ -20,7 +20,7 @@
 
 /* Audio widget */
 #pulseaudio-button {
-    background-color: #B25068;
+    background-color: #43A047;
 }
 
 #pulseaudio-button image {
@@ -36,7 +36,7 @@
 }
 
 #whiskermenu-button box {
-    background-color: #816797;
+    background-color: #1B5E20;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -45,3 +45,8 @@
     background-color: #5294E2;
 }
 /*---------------------------------------------*/
+
+.tasklist button {
+    border: 2px solid green;
+    border-radius: 5px;
+}
