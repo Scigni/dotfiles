@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Modification of script example from @xtonousou
-# https://github.com/xtonousou/xfce4-genmon-scripts
 # Dependencies: bash>=3.2, coreutils, file, gawk
 
 # Makes the script more portable

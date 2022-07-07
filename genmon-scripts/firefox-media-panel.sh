@@ -22,7 +22,7 @@ then
     MORE_INFO+="├─ TITLE:\t$SONG_TITLE\n"
     MORE_INFO+="└─ ARTIST:\t$SONG_ARTIST"
 else
-    INFO+="Mediaplayer Inactive"
+    INFO+="Mediaplayer\nInactive"
 fi
 INFO+="</txt>"
 

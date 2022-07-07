@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Modification of script example from @xtonousou
-# https://github.com/xtonousou/xfce4-genmon-scripts
 # Dependencies: acpi, bash>=3.2, coreutils, file, gawk, grep, xfce4-power-manager
 
 # Makes the script more portable
@@ -28,9 +26,9 @@ fi
 INFO+="<txt>"
 if acpi -a | grep -i "off-line" &> /dev/null; then # if AC adapter is offline
   if [ "${BATTERY}" -lt 10 ]; then # if battery is less than 10%
-    INFO+="<span weight='Bold' fgcolor='White' bgcolor='Red'>" # make the text bold red
+    INFO+="<span weight='Bold' fgcolor='Red'>" # make the text bold red
   else
-    INFO+="<span weight='Regular' fgcolor='White'>" # make the text white
+    INFO+="<span weight='Bold' fgcolor='White'>" # make the text white
   fi
 elif acpi -a | grep -i "on-line" &> /dev/null; then # if AC adapter is online
   INFO+="<span weight='Bold' fgcolor='Light Green'>" # make the text bold light green
