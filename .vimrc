@@ -3,11 +3,10 @@
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "Then open '.vimrc' and run ':PlugInstall'.
 
-
 set nocompatible
 filetype plugin indent on
 
-" COC CONFIG 
+" CoC CONFIG 
 set encoding=utf-8 
 set nobackup                   
 set nowritebackup
@@ -31,10 +30,25 @@ command! -nargs=0 Tsautof :CocCommand tsserver.executeAutofix
 noremap <C-F> :Tsautof<CR>
 
 " Use <C-l> for trigger snippet expand.
-"imap <C-l> <Plug>(coc-snippets-expand)
 inoremap <expr> <C-l> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"-------------------------------------------------------------
+
+" NerdTree CONFIG
+nnoremap <S-H> :NERDTreeFocus<CR>
+nnoremap <S-L> :wincmd p<CR>
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 
 " VIM CONFIG
 set number                    " show number of each line
@@ -48,6 +62,10 @@ set expandtab				  " tabs will be always spaces
 set tabstop=4                 " change tab size to 4 spaces
 set shiftwidth=4              " change indentation to 4 spaces
 set synmaxcol=500             " Syntax limit
+
+" Unmap <F1> bult-in help key
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
 
 " Only spell check on *_APUNTE.txt files
 autocmd BufRead,BufNewFile *_APUNTE.txt 
@@ -73,23 +91,19 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-"-------------------------------------------------------------
-
-" PLUGINS
 call plug#begin()
 " The default plugin directory will be
 " '~/vimfiles/plugged'
 
-" Style 
+" STYLE 
 Plug 'itchyny/lightline.vim'          " Light-line, Status bar
-Plug 'ajmwagar/vim-deus'              " Theme deus
-Plug 'mhinz/vim-startify'             " Start screen
-Plug 'yggdroot/indentline'            " Display indentation level
+Plug 'joshdick/onedark.vim'           " Theme
+Plug 'mhinz/vim-startify'             " fancy start screen
+Plug 'yggdroot/indentline'            " display indentation level
 
 " COMPLETION
 Plug 'alvan/vim-closetag'             " HTML auto close tag
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Some language servers
     " :CocInstall coc-snippets          Snippets
     " :CocInstall coc-pyright           Python
     " :CocInstall coc-html              HTML
@@ -100,6 +114,7 @@ Plug 'honza/vim-snippets'
 
 " UTILS 
 Plug 'haya14busa/is.vim'              " Auto clear search highlights
+Plug 'preservim/nerdtree'             " File system explorer
 
 " Commands
 " :PlugInstall         Install plugins
@@ -111,16 +126,15 @@ Plug 'haya14busa/is.vim'              " Auto clear search highlights
 call plug#end()
 
 " Theme and lighline config
-color deus
 syntax on
+colorscheme onedark
 
-" Lightline config with CoC
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'deus',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
